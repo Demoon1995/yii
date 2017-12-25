@@ -17,7 +17,7 @@ use Yii;
 class Brand extends \yii\db\ActiveRecord
 {
     //设置一个属性、
-    public $logoFile;
+//    public $logoFile;
     /**
      * @inheritdoc
      */
@@ -34,7 +34,7 @@ class Brand extends \yii\db\ActiveRecord
         return [
             [['name', 'status','sort'], 'required'],
             [['intro','logo'],'safe'],
-            [['logoFile'],'image','skipOnEmpty' => true,'extensions' => 'gif,jpg,png']
+//            [['logoFile'],'image','skipOnEmpty' => true,'extensions' => 'gif,jpg,png']
         ];
     }
 

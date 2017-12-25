@@ -15,8 +15,10 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'status')->radioList(['0'=>'禁用','1'=>'激活'],['value'=>1]) ?>
         <?= $form->field($model, 'sort')->textInput(['value'=>100]) ?>
         <?= $form->field($model, 'intro')->textarea() ?>
-        <?= $form->field($model, 'logoFile')->label('商标')->fileInput() ?>
-     <?=\yii\bootstrap\Html::img("/".$model->logo,['height'=>50])?>
+        <?=$form->field($model, 'logo')->label('商标')->widget('manks\FileInput', [
+        ]); ?>
+
+
     <div class="form-group">
             <?= Html::submitButton('提交', ['class' => 'btn btn-primary']) ?>
         </div>
