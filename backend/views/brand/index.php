@@ -2,7 +2,8 @@
 /* @var $this yii\web\View */
 ?>
 <h1>品牌列表</h1>
-<a href="<?= \yii\helpers\Url::to(['add']) ?>" class="btn btn-info">添加</a>
+<a href="<?= \yii\helpers\Url::to(['brand/add']) ?>" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span></a>
+<a href="<?= \yii\helpers\Url::to(['brand/del'])?>" class="btn btn-info "><span class="glyphicon glyphicon-trash"></span></a>
 
 <table class="table">
 
@@ -17,16 +18,17 @@
     </tr>
     <?php foreach ($brands as $brand): ?>
         <tr>
-            <td><?= $brand->id ?></td>
-            <td><?= $brand->name ?></td>
-            <td><?=\yii\bootstrap\Html::img("/".$brand->logo,['height'=>50])?></td>
-            <td><?= $brand->intro ?></td>
-            <td><?= $brand->status ?></td>
+            <td><?= $brand->id; ?></td>
+            <td><?= $brand->name; ?></td>
+            <td><?=\yii\bootstrap\Html::img("/".$brand->logo,['height'=>50]);?></td>
+            <td><?= $brand->intro;?></td>
+            <td><?php if ($brand->status == 0) {
+                    echo '<span class="glyphicon glyphicon-download alert-info" >';
+                } else echo '<span class="glyphicon glyphicon-upload alert-info text-center " >'; ?></td>
             <td><?= $brand->sort ?></td>
-            <td><a href="<?= \yii\helpers\Url::to(['edit', 'id' => $brand->id]) ?>" class="btn btn-success">编辑</a>
+            <td><a href="<?= \yii\helpers\Url::to(['edit', 'id' => $brand->id]) ?>" ><span class="glyphicon glyphicon-pencil"></span></a>
 
-                <?= \yii\bootstrap\Html::a("删除", ['del', 'id' => $brand->id], ["class" => "btn btn-danger"]) ?>
-
+                <?= \yii\bootstrap\Html::a("", ['del', 'id' => $brand->id]) ?><span class="glyphicon glyphicon-minus"></span>
             </td>
         </tr>
     <?php endforeach; ?>

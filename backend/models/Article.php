@@ -26,18 +26,6 @@ class Article extends \yii\db\ActiveRecord
     {
         return 'article';
     }
-    public function behaviors()
-    {
-        return [
-            'class'=>TimestampBehavior::className(),
-            'attributes' => [
-
-                //自动插入创建时间
-                    ActiveRecord::EVENT_AFTER_INSERT=>['create_time'],
-            ]
-
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -45,8 +33,9 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'create_time', 'cate_id'], 'required'],
-            [['intro'],'safe']
+            [['title', 'intro', 'cate_id'], 'required'],
+            [['status', 'sort', 'cate_id'], 'integer'],
+            [['create_time'],'safe']
 
         ];
     }
@@ -65,6 +54,34 @@ class Article extends \yii\db\ActiveRecord
             'intro' => '简介',
             'cate_id' => '分类Id',
         ];
+    }
+
+    //对应文章分类 1对1
+    public function getCateName(){
+        return $this->hasOne(ArticleCategory::className(),['id'=>'cate_id']);
+    }
+
+        //自动插入创建时间
+    public function behaviors()
+    {
+        return [
+            [
+                'class'=>TimestampBehavior::className(),
+                'attributes' => [
+                    //自动插入时间
+                    ActiveRecord::EVENT_BEFORE_INSERT=>['create_time'],
+                ]
+            ]
+        ];
+    }
+
+
+
+    public function getCreateTimeText(){
+
+        return date("Y-m-d H:i:s",$this->create_time);
+
+
     }
 
 }
