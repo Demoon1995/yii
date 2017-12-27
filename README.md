@@ -2,27 +2,34 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <h1 align="center">
+        电商项目---京西商城</h1>
     <br>
 </p>
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+# 1.项目介绍
+## 1.1.项目简介
+ 在当今世纪中电商是常用到的，虽然纯电商的创业已经不太容易，但是各个公司都有变现的需要，所以在自身应用中嵌入电商功能是非常普遍的做法。
+ 
+  这个项目类似于京东商城的B2C商城(C2C B2B O2O P2P ERP进销存 CRM客户关系管理)。
+  
+  为了让大家掌握企业开发的特点，以及解决问题的能力，我们开发一个电商项目，项目会涉及非常有代表性的功能。
+  为了让大家掌握公司协同开发的要点，我们使用git管理代码。
+  
+  在项目中我们利用YII框架，和维护等，还有其他的插件，为了让这个项目更加的完美。
+  
+## 1.2.项目的主要功能模块
+项目主要包括后台和前台
+     后台：
+     品牌管理、商品分类管理、商品管理、订单管理、系统管理和会员管理六个功能模块。
+     前台：首页、商品展示、商品购买、订单管理、在线支付等。
+## 1.3.开发环境和技术
+-  开发环境    Window
+-  开发工具 Phpstorm+PHP5.6+GIT+Apache
+-  相关技术   Yii2.0+jQuery+CDN
+## 1.4.项目人员组成周期成本 
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
-
-DIRECTORY STRUCTURE
--------------------
 
 
 
