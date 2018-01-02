@@ -53,11 +53,14 @@ class BrandController extends \yii\web\Controller
             //绑定数据库
             $model->load($request->post());
 
+            //得到上传图片对象
+            $model->logoFile=UploadedFile::getInstance($model,'logoFile');
+
             //验证
             if ($model->validate()) {
                 //保存数据
                 $model->save();
-                \Yii::$app->session->setFlash("success","添加");
+                \Yii::$app->session->setFlash("success","编辑");
                 return $this->redirect(['index']);
             }
 

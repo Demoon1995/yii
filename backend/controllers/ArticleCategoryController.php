@@ -32,7 +32,7 @@ class ArticleCategoryController extends \yii\web\Controller
                 $model->save();
                 \Yii::$app->session->setFlash("success","添加");
 
-                return $this->redirect(['index']);
+                return $this->redirect(['article-category/index']);
             }
 
 
@@ -59,7 +59,7 @@ class ArticleCategoryController extends \yii\web\Controller
                 $model->save();
                 \Yii::$app->session->setFlash("success","编辑");
 
-                return $this->redirect(['index']);
+                return $this->redirect(['article-category/index']);
             }
 
 
@@ -73,7 +73,7 @@ class ArticleCategoryController extends \yii\web\Controller
 
         if (ArticleCategory::findOne($id)->delete()) {
             \Yii::$app->session->setFlash("success",'删除成功');
-            return $this->redirect(['index']);
+            return $this->redirect(['article-category/index']);
         }
 
     }

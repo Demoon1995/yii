@@ -62,7 +62,7 @@ class ArticleController extends \yii\web\Controller
                     if ($detal->save()) {
                         \Yii::$app->session->setFlash("success","添加成功");
 
-                        return $this->redirect(['index']);
+                        return $this->redirect(['article/index']);
                     }
                 }
 
@@ -108,7 +108,7 @@ class ArticleController extends \yii\web\Controller
                     if ($detal->save()) {
                         \Yii::$app->session->setFlash("success","添加成功");
 
-                        return $this->redirect(['index']);
+                        return $this->redirect(['article/index']);
                     }
                 }
 
@@ -127,7 +127,7 @@ class ArticleController extends \yii\web\Controller
 
         if (Article::findOne($id)->delete()) {
             \Yii::$app->session->setFlash("success",'删除成功');
-            return $this->redirect(['index']);
+            return $this->redirect(['article/index']);
         }
 
     }
