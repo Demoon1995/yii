@@ -3,11 +3,26 @@
 ?>
 <h1>商品列表</h1>
 
-<div class="row">
-    <div class="pull-left">
-        <?=\yii\bootstrap\Html::a("添加",['goods/add'],['class'=>"btn btn-info"])?>
+    <div class="row">
+        <div class="pull-left">
+            <?=\yii\bootstrap\Html::a("添加",['add'],['class'=>"btn btn-info"])?>
+        </div>
+        <div class="pull-right">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" size="3" class="form-control" name='minPrice' placeholder="最低价" value="<?=Yii::$app->request->get('minPrice')?>">
+                </div>
+                -
+                <div class="form-group">
+                    <input type="text" size="3" class="form-control" name="maxPrice" placeholder="最高价" value="<?=Yii::$app->request->get('maxPrice')?>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="keyword" placeholder="请输入名称或货号" value="<?=Yii::$app->request->get('keyword')?>">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
     </div>
-</div>
 
 
 <table class="table">
@@ -33,18 +48,20 @@
         <td><?=$model->name;?></td>
         <td><?=$model->sn;?></td>
         <td><?=\yii\bootstrap\Html::img("/".$model->logo,['height'=>50]);?></td>
-        <td><?=$model->category_id;?></td>
-        <td><?=$model->brand_id;?></td>
+        <td><?=$model->goodsCategory->name;?></td>
+        <td><?=$model->brand->name;?></td>
         <td><?=$model->market_price;?></td>
-        <td><?=$model->shop_price;?></td>
         <td><?=$model->stock;?></td>
-        <td><?=$model->status;?></td>
+        <td><?php if ($model->status == 0) {
+                echo '<span class="glyphicon glyphicon-download alert-info" >';
+            } else echo '<span class="glyphicon glyphicon-upload alert-info text-center " >'; ?></td>
+        <td><?= $model->sort ?></td>
         <td><?=$model->sort;?></td>
-        <td><?=$model->create_at?></td>
+        <td><?=$model->createTimeText?></td>
         <td>
-            <?= \yii\bootstrap\Html::a("", ['goods-category/edit', 'id' => $model->id],['class'=>'btn btn-success glyphicon glyphicon-edit']) ?>
+            <?= \yii\bootstrap\Html::a("", ['goods/edit', 'id' => $model->id],['class'=>'btn btn-success glyphicon glyphicon-edit']) ?>
 
-            <?= \yii\bootstrap\Html::a("", ['goods-category/del', 'id' => $model->id],['class'=>'btn btn-danger glyphicon glyphicon-remove']) ?>
+            <?= \yii\bootstrap\Html::a("", ['goods/del', 'id' => $model->id],['class'=>'btn btn-danger glyphicon glyphicon-remove']) ?>
 
         </td>
     </tr>

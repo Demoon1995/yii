@@ -65,4 +65,20 @@ class Goods extends \yii\db\ActiveRecord
             'create_at' => 'Create At',
         ];
     }
+    public function getBrand(){
+            return $this->hasOne(Brand::className(),['id'=>'brand_id']);
+    }
+
+    public function getGoodsCategory(){
+
+        return $this->hasOne(GoodsCategory::className(),['id'=>'category_id']);
+    }
+
+
+    public function getCreateTimeText(){
+
+        return date("Y-m-d H:i:s",$this->create_at);
+
+
+    }
 }

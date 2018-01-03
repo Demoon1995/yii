@@ -14,7 +14,7 @@
     
     <?php foreach ($cates as $cate): ?>
 
-        <tr class="cate" data-tree="<?=$cate->tree ?>" data-lft="$cate->lft" data-rgt="$cate->rgt">
+        <tr class="cate_tr" data-tree="<?=$cate->tree ?>" data-lft="<?=$cate->lft ?>" data-rgt="<?=$cate->rgt?>">
             <td><?=$cate->id?></td>
             <td><span class="glyphicon glyphicon-chevron-down"></span><?=$cate->nameText?></td>
             <td><?=$cate->intro?></td>
@@ -33,7 +33,7 @@
 <?php
 //定义JS
 $js=<<<JS
-    $(".cate").click(function() {
+    $(".cate_tr").click(function() {
         
         var tr=$(this);
         //隐藏图标
@@ -52,7 +52,7 @@ $js=<<<JS
             var lft=$(v).attr('data-lft');
             var rgt=$(v).attr('data-rgt');
             var tree=$(v).attr('data-tree');
-            console.log($(v).attr('data-lft'))
+            // console.log($(v).attr('data-lft'))
             //循环判断
             if(tree==tree_parent && lft-lft_parent>0 && rgt-rgt_parent<0){
             
@@ -70,7 +70,7 @@ $js=<<<JS
                          }
                      }
                 })
-            console.dir(this);
+            // console.dir(this);
             });
 
 JS;

@@ -8,6 +8,8 @@ use yii\helpers\Json;
 
 class GoodsCategoryController extends \yii\web\Controller
 {
+
+    //显示
     public function actionIndex()
     {
         //查询所有数据
@@ -15,8 +17,6 @@ class GoodsCategoryController extends \yii\web\Controller
         //显示视图
         return $this->render('index',compact('cates'));
     }
-
-
     //添加
     public function actionAdd(){
         //创建一个分类模型对象
@@ -39,6 +39,8 @@ class GoodsCategoryController extends \yii\web\Controller
                 if ($model->parent_id==0){
 
                     $model->makeRoot();
+//                    var_dump( $model->makeRoot());
+//                    exit;
 
                     \Yii::$app->session->setFlash("success","添加一级分类".$model->name."成功");
 
@@ -58,7 +60,7 @@ class GoodsCategoryController extends \yii\web\Controller
                 }
 
                 //刷新
-                return $this->refresh();
+                return $this->redirect(['goods-category/index']);
 
 
             }
@@ -71,6 +73,7 @@ class GoodsCategoryController extends \yii\web\Controller
 
 
     }
+    //修改
     public function actionEdit($id){
         //创建一个分类模型对象
         //$model=new Category();
