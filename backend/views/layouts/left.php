@@ -37,78 +37,46 @@
         </form>
         <!-- /.search form -->
 
-        <?= dmstr\widgets\Menu::widget(
+
+        <?php
+        $callback = function($menu){
+            $data = json_decode($menu['data'], true);
+            $items = $menu['children'];
+            $return = [
+                'label' => $menu['name'],
+                'url' => [$menu['route']],
+            ];
+            //处理我们的配置
+            if ($data) {
+                //visible
+                isset($data['visible']) && $return['visible'] = $data['visible'];
+                //icon
+                isset($data['icon']) && $data['icon'] && $return['icon'] = $data['icon'];
+                //other attribute e.g. class...
+                $return['options'] = $data;
+            }
+            //没配置图标的显示默认图标
+            (!isset($return['icon']) || !$return['icon']) && $return['icon'] = 'fa fa-circle-o';
+            $items && $return['items'] = $items;
+            return $return;
+        };
+        //这里我们对一开始写的菜单menu进行了优化
+
+        echo dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' =>
-                        mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id),
-//                    ['label' => '后台管理菜单', 'options' => ['class' => 'header']],
-//                    ['label' => 'Gii生成器', 'icon' => 'file-code-o', 'url' => ['/gii']],
-//
-//
-//                    //管理员
-//                    [
-//                        'label' => '管理员',
-//                        'icon' => 'file-code-o',
-//                        'url' => '#',
-//                        'items' => [
-//                            ['label' => '用户列表', 'icon' => 'file-code-o', 'url' => ['/admin/index'],],
-//                            ['label' => '添加用户', 'icon' => 'dashboard', 'url' => ['/admin/add'],],
-//                            ['label' => '权限列表', 'icon' => 'dashboard', 'url' => ['/permission/index'],],
-//                            ['label' => '添加权限', 'icon' => 'dashboard', 'url' => ['/permission/index'],],
-//                            ['label' => '角色列表', 'icon' => 'dashboard', 'url' => ['/role/index'],],
-//                            ['label' => '添加角色', 'icon' => 'dashboard', 'url' => ['/role/add'],],
-//
-//                        ],
-//                    ],
-//
-//
-//
-//
-//
-//                    //品牌
-//                    [
-//                        'label' => '品牌管理',
-//                        'icon' => 'file-code-o',
-//                        'url' => '#',
-//                        'items' => [
-//                            ['label' => '品牌列表', 'icon' => 'file-code-o', 'url' => ['/brand/index'],],
-//                            ['label' => '添加品牌', 'icon' => 'dashboard', 'url' => ['/brand/add'],],
-//
-//                        ],
-//                    ],
-//
-//                        //文章
-//                    [
-//                        'label' => '文章管理',
-//                        'icon' => 'file-code-o',
-//                        'url' => '#',
-//                        'items' => [
-//                            ['label' => '文章列表', 'icon' => 'file-code-o', 'url' => ['/article/index'],],
-//                            ['label' => '文章添加', 'icon' => 'dashboard', 'url' => ['/article/add'],],
-//                            ['label' => '文章分类', 'icon' => 'dashboard', 'url' => ['/article-category/index'],],
-//                            ['label' => '添加分类', 'icon' => 'dashboard', 'url' => ['/article-category/add'],],
-//
-//                        ],
-//                    ],
-//
-//                    //商品
-//
-//                    [
-//                        'label' => '商品管理',
-//                        'icon' => 'file-code-o',
-//                        'url' => '#',
-//                        'items' => [
-//                            ['label' => '商品列表', 'icon' => 'file-code-o', 'url' => ['/goods/index'],],
-//                            ['label' => '商品添加', 'icon' => 'dashboard', 'url' => ['/goods/add'],],
-//                            ['label' => '商品分类', 'icon' => 'dashboard', 'url' => ['/goods-category/index'],],
-//                            ['label' => '添加分类', 'icon' => 'dashboard', 'url' => ['/goods-category/add'],],
-//
-//                        ],
-//                    ],
+                    mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id,false, $callback),
+        ] ); ?>
 
-            ]
-        ) ?>
+
+
+
+
+
+
+
+
 
     </section>
 

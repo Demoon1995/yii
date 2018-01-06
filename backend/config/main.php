@@ -17,7 +17,7 @@ return [
             //模块的优先级高于控制器
         'demon' => [
             'class' => 'mdm\admin\Module',
-            'layout' => 'left-menu',
+//            'layout' => 'left-menu',
         ]
     ],
     'components' => [
