@@ -1,6 +1,8 @@
 <?php
 /* @var $this yii\web\View */
 ?>
+
+<div class="table-responsive">
 <h1>商品分类列表</h1>
 <a href="<?= \yii\helpers\Url::to(['goods-category/add']) ?>" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span></a>
 <a href="<?= \yii\helpers\Url::to(['goods-category/trash']) ?>" class="btn btn-danger "><span class="glyphicon glyphicon-trash"></span></a>
@@ -79,5 +81,6 @@ JS;
 
 
 ?>
+</div>
 
 

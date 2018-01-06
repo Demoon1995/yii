@@ -2,6 +2,8 @@
 /* @var $this yii\web\View */
 ?>
 <h1>角色列表</h1>
+
+<div class="table-responsive">
 <a href="<?= \yii\helpers\Url::to(['add']) ?>" class="btn btn-info">添加</a>
 
 <table class="table">
@@ -46,3 +48,4 @@
         </tr>
     <?php endforeach;?>
 </table>
+</div>

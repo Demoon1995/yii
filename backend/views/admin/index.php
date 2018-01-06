@@ -2,9 +2,9 @@
 /* @var $this yii\web\View */
 ?>
 <h1>管理员列表</h1>
+<div class="table-responsive">
 
 <?=\yii\bootstrap\Html::a("添加管理员",['add'],['class'=>'btn btn-info'])?>
-
 <table class="table table-bordered">
     <tr>
         <th>id</th>
@@ -34,7 +34,7 @@
         </tr>
     <?php endforeach;?>
 
-
 </table>
+</div>
 
 

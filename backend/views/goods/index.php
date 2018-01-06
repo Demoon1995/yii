@@ -2,7 +2,7 @@
 /* @var $this yii\web\View */
 ?>
 <h1>商品列表</h1>
-
+ <div class="table-responsive">
     <div class="row">
         <div class="pull-left">
             <?=\yii\bootstrap\Html::a("添加",['add'],['class'=>"btn btn-info"])?>
@@ -76,3 +76,4 @@
 <?=\yii\widgets\LinkPager::widget(
    ['pagination' => $pages]
 )?>
+ </div>

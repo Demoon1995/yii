@@ -2,6 +2,8 @@
 /* @var $this yii\web\View */
 ?>
 <h1>权限列表</h1>
+
+<div class="table-responsive">
 <a href="<?=\yii\helpers\Url::to(['add'])?>"class="btn btn-info">添加权限</a>
 
 <table class="table table-bordered table-striped">
@@ -28,6 +30,6 @@
     <?php endforeach;?>
 </table>
 
-
+</div>
 
 

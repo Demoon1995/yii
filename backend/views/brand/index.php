@@ -1,7 +1,12 @@
 <?php
 /* @var $this yii\web\View */
 ?>
+
 <h1>品牌列表</h1>
+
+
+<div class="table-responsive">
+
 <a href="<?= \yii\helpers\Url::to(['brand/add']) ?>" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span></a>
 <a href="<?= \yii\helpers\Url::to([''])?>" class="btn btn-info "><span class="glyphicon glyphicon-trash"></span></a>
 
@@ -34,4 +39,4 @@
     <?php endforeach; ?>
 </table>
 
-
+</div>

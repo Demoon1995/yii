@@ -2,11 +2,12 @@
 /* @var $this yii\web\View */
 ?>
 <h1>文章管理</h1>
+
+<div class="table-responsive">
+
 <?=\yii\bootstrap\Html::a("添加",['add'],['class'=>'btn btn-info'])?>
 
 <table class="table">
-
-
     <tr>
         <th>Id</th>
         <th>标题</th>
@@ -38,3 +39,4 @@
 
     <?php endforeach;?>
 </table>
+</div>

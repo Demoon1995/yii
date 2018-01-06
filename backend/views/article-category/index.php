@@ -3,9 +3,9 @@
 ?>
 <h1>文章分类列表</h1>
 
+<div class="table-responsive">
 <?=\yii\bootstrap\Html::a("添加",['add'],['class'=>'btn btn-info'])?>
 <table class="table">
-
     <tr>
         <th>Id</th>
         <th>名称</th>
@@ -33,3 +33,4 @@
     <?php endforeach;?>
 
 </table>
+</div>
