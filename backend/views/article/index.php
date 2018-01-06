@@ -24,9 +24,11 @@
             <td><?= $model->id ?></td>
             <td><?= $model->title ?></td>
             <td><?= $model->intro ?></td>
-            <td><?= $model->status ?></td>
+            <td><?php if ($model->status == 0) {
+                    echo '<span class="glyphicon glyphicon-download alert-info" >';
+                } else echo '<span class="glyphicon glyphicon-upload alert-info text-center " >'; ?></td>
             <td><?= $model->sort ?></td>
-            <td><?= $model->cate_id ?></td>
+            <td><?=$model->articleCategory->name;?></td>
             <td><?= $model->createTimeText ?></td>
 
             <td><a href="<?= \yii\helpers\Url::to(['edit', 'id' => $model->id]) ?>" class="btn btn-success">编辑</a>

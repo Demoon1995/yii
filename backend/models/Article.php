@@ -74,7 +74,10 @@ class Article extends \yii\db\ActiveRecord
             ]
         ];
     }
+    public function getArticleCategory(){
 
+        return $this->hasOne(ArticleCategory::className(),['id'=>'cate_id']);
+    }
 
 
     public function getCreateTimeText(){
