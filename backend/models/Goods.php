@@ -65,16 +65,33 @@ class Goods extends \yii\db\ActiveRecord
             'create_at' => 'Create At',
         ];
     }
-    public function getBrand(){
+
+
+    public function getGoods(){
             return $this->hasOne(Brand::className(),['id'=>'brand_id']);
     }
+
+    //商品和分类的一对多
 
     public function getGoodsCategory(){
 
         return $this->hasOne(GoodsCategory::className(),['id'=>'category_id']);
     }
 
+    //商品和图片的一对多
+  public function getIntro(){
 
+        return $this->hasOne(GoodsIntro::className(),['goods_id' => 'id']);
+  }
+
+
+  public function getImages(){
+
+        return $this->hasMany(GoodsGallery::className(),['goods_id'=>'id']);
+
+  }
+
+    //创建时间
     public function getCreateTimeText(){
 
         return date("Y-m-d H:i:s",$this->create_at);

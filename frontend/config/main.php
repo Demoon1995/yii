@@ -7,6 +7,8 @@ $params = array_merge(
 );
 
 return [
+
+    'defaultRoute'=>'home/index',
     'layout'=>false,
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),

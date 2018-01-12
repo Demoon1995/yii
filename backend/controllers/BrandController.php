@@ -5,6 +5,8 @@ namespace backend\controllers;
 use backend\models\Brand;
 use yii\web\UploadedFile;
 
+use flyok666\qiniu\Qiniu;
+
 class BrandController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -82,9 +84,29 @@ class BrandController extends \yii\web\Controller
 
     public function actionUpload(){
 
+
+        $uploadType=\Yii::$app->params['uploadType'];
+
+        switch ($uploadType){
+
+            case 'local':
+
+                //本地上传在这里
+                break;
+
+            case 'qiniu':
+
+                //七牛云
+                break;
+
+        }
+
+
+
+
 //        var_dump($_FILES);
 //        {"code": 0, "url": "http://domain/图片地址", "attachment": "图片地址"}
-           $file=UploadedFile::getInstanceByName("file");
+         /*  $file=UploadedFile::getInstanceByName("file");
            if ($file){
                //路径
                $path="images/brand/".time().".".$file->extension;
@@ -97,13 +119,37 @@ class BrandController extends \yii\web\Controller
                    ];
                    return json_encode($result);
                }
-           }
+           }*/
+         $config=[
 
+             'accessKey'=>'QWDBy5cd07Ghl1iTOkfMM6vwNnFclePT0UqOwU4f',
+             'secretKey'=>'PFyqUnAHo0QHjNAIjK1G2g2GxXlhHd0vnbuHmGJV',
+             'domain'=>'http://p2e095ya9.bkt.clouddn.com',
+             'bucket'=>'demon',
+             'area'=>Qiniu::AREA_HUABEI
 
+         ];
 
+//         var_dump($_FILES);exit;
+         $qiniu=new Qiniu($config);
 
+//         var_dump($qiniu);exit;
+         $key=time();
+         $qiniu->uploadFile($_FILES['file']["tmp_name"],$key);
+         $url=$qiniu->getLink($key);
 
+//         var_dump($url);exit;
 
+         //返回结果
+        $result=[
+
+            'code'=>0,
+            'url'=>$url,
+            'attachment'=>$url
+
+        ];
+
+        return json_encode($result);
 
 
     }

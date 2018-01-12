@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'status')->radioList(['0'=>'禁用','1'=>'激活'],['value'=>1]) ?>
         <?= $form->field($model, 'sort')->textInput(['value'=>100]) ?>
         <?= $form->field($model, 'intro')->textarea() ?>
-        <?=$form->field($model, 'logo')->label('商标')->widget('manks\FileInput', [
+        <?= $form->field($model, 'logo')->label('商标')->widget('manks\FileInput', [
         ]); ?>
 
 

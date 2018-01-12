@@ -17,7 +17,7 @@ use Yii;
 class Brand extends \yii\db\ActiveRecord
 {
     //设置一个属性、
-    public $logoFile;
+//    public $logoFile;
     /**
      * @inheritdoc
      */

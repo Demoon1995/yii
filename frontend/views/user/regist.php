@@ -11,23 +11,9 @@
 </head>
 <body>
 	<!-- 顶部导航 start -->
-	<div class="topnav">
-		<div class="topnav_bd w990 bc">
-			<div class="topnav_left">
-				
-			</div>
-			<div class="topnav_right fr">
-				<ul>
-					<li>您好，欢迎来到如意商城！[<a href="login.html">登录</a>] [<a href="regist.html">免费注册</a>] </li>
-					<li class="line">|</li>
-					<li>我的订单</li>
-					<li class="line">|</li>
-					<li>客户服务</li>
-
-				</ul>
-			</div>
-		</div>
-	</div>
+    <?php
+    include_once Yii::getAlias("@app/views/common/nav.php");
+    ?>
 	<!-- 顶部导航 end -->
 	
 	<div style="clear:both;"></div>
@@ -146,28 +132,6 @@
 
         //ajax 提交
         $(function () {
-
-            //点击提交按钮时提交数据
-            $(".login_btn").click(function () {
-                //得到表单中所有数据
-                $.post("/user/regist",$("#reg_form").serialize(),function (data) {
-                    console.dir(data);
-                    if(data.status){
-
-                        alert(data.msg);
-                    }else{
-                            //刷新验证码
-                        $.each(data.data,function (k, v) {
-                            console.log(v[0]);
-                            layer.tips(v[0], '#'+k, {
-                                tips: [2, 'red'],
-                                tipsMore: true
-                            });
-                        })
-                    }
-                },'json')
-            });
-
 
             //更换验证码图片
             $("#changeCode,#imgCode").click(function () {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecbf930c86014900b7dec39abf9507ce",
+    "content-hash": "c3fd7357b94c5c14df355f106fbbcc8f",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -541,6 +541,44 @@
                 "html"
             ],
             "time": "2017-06-03T02:28:16+00:00"
+        },
+        {
+            "name": "flyok666/yii2-qiniu",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flyok666/yii2-qiniu.git",
+                "reference": "c3d4b794570f159395bb59102482b68b57f44b45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/flyok666/yii2-qiniu/c3d4b794570f159395bb59102482b68b57f44b45.zip",
+                "reference": "c3d4b794570f159395bb59102482b68b57f44b45",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "flyok666\\qiniu\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "flyok666",
+                    "email": "flyok666@qq.com"
+                }
+            ],
+            "description": "yii2上传到七牛云存储",
+            "keywords": [
+                "qiniu",
+                "upload",
+                "yii"
+            ],
+            "time": "2017-07-18T14:48:14+00:00"
         },
         {
             "name": "fortawesome/font-awesome",

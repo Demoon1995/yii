@@ -9,6 +9,7 @@ use yii\helpers\Json;
 class UserController extends \yii\web\Controller
 {
 
+//    public $enableCsrfValidation=false;
     public function actions()
     {
         return [
@@ -20,6 +21,8 @@ class UserController extends \yii\web\Controller
             ],
         ];
     }
+
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -54,6 +57,7 @@ class UserController extends \yii\web\Controller
                             'data'=>null
                         ]
                     );
+                    return $this->redirect(['user/resist']);
 
                 }
 
@@ -120,5 +124,57 @@ class UserController extends \yii\web\Controller
 
         return $code;
     }
+
+    public function actionLogin(){
+
+            $request=\Yii::$app->request;
+
+        if ($request->isPost) {
+
+            //创建对象
+            $model=new User();
+            $model->scenario="login";
+
+            //绑定数据
+            $model->load($request->post());
+
+
+
+            //后台验证
+            if ($model->validate()) {
+
+                //找到对象
+                $user=User::findOne(['username'=>$model->username]);
+//                var_dump($user);exit;
+                //判断用户是否存在  密码是否正确
+                if ($user && \Yii::$app->security->validatePassword($model->password,$user->password_hash)) {
+
+                    //用户登录
+                    \Yii::$app->user->login($user,$model->rememberMe?3600*24:0);
+                    return $this->redirect(['home/index']);
+
+                 }else{
+
+                    echo "<script>alert($model->errors)</script>";
+              }
+          }else{
+                var_dump($model->errors);exit;
+            }
+      }
+
+
+        return $this->render('login');
+    }
+
+
+
+    public function actionLogout(){
+
+
+        \Yii::$app->user->logout();
+
+            return $this->redirect(['home/index']);
+        }
+
 
 }
