@@ -48,7 +48,7 @@
         <!-- 头部 start -->
         <?php
 
-        include_once Yii::getAlias("@app/views/common/nav.php")
+        include_once Yii::getAlias("@app/views/common/header.php")
 
         ?>
         <!-- 头部 end-->
@@ -203,15 +203,17 @@
                         <li><span>上架时间：</span><?=date('Y-m-d',$good->create_at)?></li>
                         <li class="star"><span>商品评分：</span> <strong></strong><a href="">(已有21人评价)</a></li> <!-- 此处的星级切换css即可 默认为5星 star4 表示4星 star3 表示3星 star2表示2星 star1表示1星 -->
                     </ul>
-					<form action="<?=\yii\helpers\Url::to(['cart/add'])?>" method="post" class="choose">
-						<ul>
+					<form action="<?=\yii\helpers\Url::to(['cart/add'])?>" method="get" class="choose">
+                        <input type="hidden" name="id" value="<?=$good->id?>">
+
+                            <ul>
 
 							<li>
 								<dl>
 									<dt>购买数量：</dt>
 									<dd>
                                         <a href="javascript:;" id="reduce_num"></a>
-                                        <input type="text" name="amount" value="1" class="amount"/>
+                                        <input type="text" name="amout" value="1" class="amount"/>
                                         <a href="javascript:;" id="add_num"></a>
 									</dd>
 								</dl>

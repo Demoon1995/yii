@@ -50,6 +50,8 @@ class GoodsController extends \yii\web\Controller
 
     public function actionAddress(){
 
+
+
         return $this->render('address');
     }
 }

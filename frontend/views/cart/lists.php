@@ -33,6 +33,7 @@ include_once Yii::getAlias("@app/views/common/header.php");
 
 <!-- 主体部分 start -->
 <div class="mycart w990 mt10 bc">
+
     <h2><span>我的购物车</span></h2>
     <table>
         <thead>
@@ -69,9 +70,10 @@ include_once Yii::getAlias("@app/views/common/header.php");
         </tfoot>
     </table>
     <div class="cart_btn w990 bc mt10">
-        <a href="" class="continue">继续购物</a>
-        <a href="" class="checkout">结 算</a>
+        <a href="<?=yii\helpers\Url::to('/goods/lists?id=1')?>" class="continue">继续购物</a>
+        <a href="<?=yii\helpers\Url::to('/order/index')?>" class="checkout">结 算</a>
     </div>
+<!--    </form>-->
 </div>
 <!-- 主体部分 end -->
 
