@@ -9,12 +9,17 @@ $params = array_merge(
 return [
 
     'defaultRoute'=>'home/index',
+    'language'=>'zh-CN',
     'layout'=>false,
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+//
+//        'Cart'=>[
+//            'class'=>\frontend\components\ShopCart::className(),
+//            ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

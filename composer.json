@@ -26,7 +26,10 @@
         "mdmsoft/yii2-admin": "~2.0",
         "kartik-v/yii2-widget-datetimepicker": "*",
         "mrgoon/aliyun-sms": "dev-master",
-        "flyok666/yii2-qiniu": "^1.0"
+        "flyok666/yii2-qiniu": "^1.0",
+        "overtrue/wechat": "~3.0",
+        "endroid/qr-code": "^2.5",
+        "2amigos/yii2-qrcode-helper": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

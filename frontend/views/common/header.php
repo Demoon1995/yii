@@ -1,7 +1,7 @@
 <div class="header w1210 bc mt15">
     <!-- 头部上半部分 start 包括 logo、搜索、用户中心和购物车结算 -->
     <div class="logo w1210">
-        <h1 class="fl"><a href="index.html"><img src="/static/images/logo.png" alt="京西商城"></a></h1>
+        <h1 class="fl"><a href="index.html"><img src="/static/images/logo1.jpg" alt="京西商城"></a></h1>
         <!-- 头部搜索 start -->
         <div class="search fl">
             <div class="search_form">
@@ -39,7 +39,7 @@
                     <div class="uclist mt10">
                         <ul class="list1 fl">
                             <li><a href="">用户信息></a></li>
-                            <li><a href="">我的订单></a></li>
+                            <li><a href="/order/order">我的订单></a></li>
                             <li><a href="">收货地址></a></li>
                             <li><a href="">我的收藏></a></li>
                         </ul>
@@ -70,7 +70,7 @@
         <div class="cart fl">
             <dl>
                 <dt>
-                    <a href="">去购物车结算</a>
+                    <a href="/cart/lists">去购物车结算</a>
                     <b></b>
                 </dt>
                 <dd>

@@ -213,7 +213,7 @@
 									<dt>购买数量：</dt>
 									<dd>
                                         <a href="javascript:;" id="reduce_num"></a>
-                                        <input type="text" name="amout" value="1" class="amount"/>
+                                        <input type="text" name="amount" value="1" class="amount"/>
                                         <a href="javascript:;" id="add_num"></a>
 									</dd>
 								</dl>
